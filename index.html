@@ -1,63 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cookie Clicker Launcher</title>
+  <meta charset="UTF-8">
+  <title>Fullscreen Iframe</title>
   <style>
-    /* Dark red themed styling */
-    body {
-      background-color: #2b0000;
-      color: #f0d0d0;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+    html, body {
       margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
     }
-    .container {
-      background-color: #330000;
-      padding: 2rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      text-align: center;
-    }
-    button {
-      background-color: #440000;
-      color: #f0d0d0;
-      border: 2px solid #770000;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-    button:hover {
-      background-color: #770000;
+    iframe {
+      border: none;
+      width: 100vw;
+      height: 100vh;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Cookie Clicker Launcher</h1>
-    <p>Click the button below to launch Cookie Clicker in a new window.</p>
-    <button onclick="launchCookieClicker()">Launch Cookie Clicker</button>
-  </div>
-
-  <script>
-    function launchCookieClicker() {
-      fetch('https://eaglerstuff-theta.vercel.app/')
-        .then(response => response.text())
-        .then(html => {
-          // Ensure relative paths are resolved
-          const fixed = html.replace(/<head>/i, '<head><base href="https://eaglerstuff-theta.vercel.app/">');
-          const blob = new Blob([fixed], { type: 'text/html' });
-          window.open(URL.createObjectURL(blob), '_blank');
-        })
-        .catch(err => alert('Failed to load Cookie Clicker: ' + err));
-    }
-  </script>
+  <iframe src="https://eagler-fybc.onrender.com" allowfullscreen></iframe>
 </body>
 </html>
